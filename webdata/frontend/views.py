@@ -9,14 +9,7 @@ def detail(request, request_id):
     r = get_object_or_404(Request, pk=request_id)
     return render_to_response('detail.html', {'request': r})
     
-def detail1(request):
+def detail_by_url(request):
 	url = request.GET.get('url', '')
 	r = get_object_or_404(Request, url=url)
 	return render_to_response('detail.html', {'request': r})
-
-def results(request, poll_id):
-    return HttpResponse("You're looking at the results of poll %s." % poll_id)
-
-def vote(request, poll_id):
-    return HttpResponse("You're voting on poll %s." % poll_id)
-    

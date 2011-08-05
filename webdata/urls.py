@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('frontend.views',
     (r'^$', 'index'),
     (r'^view/(?P<request_id>\d+)/$', 'detail'),
-    (r'^view/', 'detail1')
+    (r'^view/', 'detail_by_url')
 )
 
 urlpatterns += patterns('',
