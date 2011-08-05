@@ -1,0 +1,51 @@
+<!doctype html>
+<head>
+<link href='css/defaults.css' rel='stylesheet' />
+<link href='css/styles.css' rel='stylesheet' />
+
+<script type="text/javascript" src='scripts/common.js'></script>
+<script type="text/javascript" src='scripts/app.js'></script>
+<script type="text/javascript" src='scripts/raphael.js'></script>
+<script type="text/javascript">
+window.onload = function () {
+    var r = Raphael("holder");
+    r.g.txtattr.font = "12px 'Fontin Sans', Fontin-Sans, sans-serif";
+    
+    r.g.text(320, 20, "Time").attr({"font-size": 20});
+    
+    //var pie = r.g.piechart(320, 160, 100, [55, 20, 13, 32, 5, 1, 2, 10], {legend: ["Enterprise Users", "IE Users"], legendpos: "west", href: ["http://raphaeljs.com", "http://g.raphaeljs.com"]});
+    log(graphData)
+    var mod = 100 / graphData.total;
+    log(mod);
+    var pie = r.g.piechart(320, 160, 100, [graphData.css.length * mod, graphData.images.length  * mod, graphData.scripts.length * mod], {legend: ["CSS","Images","Scripts"], legendpos: "west", href: ["http://raphaeljs.com", "http://g.raphaeljs.com"]});
+    
+    
+    pie.hover(function () {
+        this.sector.stop();
+        this.sector.scale(1.1, 1.1, this.cx, this.cy);
+        if (this.label) {
+            this.label[0].stop();
+            this.label[0].scale(1.5);
+            this.label[1].attr({"font-weight": 800});
+        }
+    }, function () {
+        this.sector.animate({scale: [1, 1, this.cx, this.cy]}, 500, "bounce");
+        if (this.label) {
+            this.label[0].animate({scale: 1}, 500, "bounce");
+            this.label[1].attr({"font-weight": 400});
+        }
+    });
+    
+};
+</script>
+</head>
+
+<body>
+<header>Http</header>
+<div id='holder'>
+	
+</div>
+
+
+
+</body>
