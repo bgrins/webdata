@@ -1,0 +1,5 @@
+#http://docs.celeryproject.org/en/latest/tutorials/otherqueues.html
+
+apt-get install python-pip
+pip install -U celery
+pip install -U redis

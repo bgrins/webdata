@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}Yo{% endblock %}</title>
+	<link href='css/defaults.css' rel='stylesheet' />
+	<link href='css/styles.css' rel='stylesheet' />
+	<script type='text/javascript' src='scripts/jquery-1.6.2.js'></script>
+	<script type='text/javascript' src='scripts/common.js'></script>
+	<script type='text/javascript' src='scripts/app.js'></script>
+</head>
+<body>
+<div class="container"> 
+  <div class='span-22'><h1>Get info</h1> </div>
+  <div class='span-1 last'>
+    <a href="{{ loginurl }}">{{ logintext }}</a>
+   </div>
+  <hr> 
+  {% block marketing %}{% endblock %}
+  <div class="span-15 prepend-1 colborder"> 
+  
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+  </div>
+  <div class='span-7 last'>
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+  </div>
+    
+</body>
+</html>

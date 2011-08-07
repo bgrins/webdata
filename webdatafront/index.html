@@ -1,0 +1,34 @@
+{% extends "master.html" %}
+
+{% block title %}Dashbord{% endblock %}
+
+{% block content %}
+<form method='get' target="index.php">
+<input name='url' placeholder='enter a url' value="<?php echo $_GET['url'] ?>" />
+<input type='submit' value='Go!' />
+</form>
+
+{% if view %}
+<table width='99%'>
+<tr>
+<td width='210'>
+	<img src='<?=$imagename?>' width="200" />
+</td>
+<td>
+	<div class="har" data-har="../<?php echo $filename; ?>" expand="true" height="100%"></div>
+</td>
+</tr>
+</table>
+<div class='har-details'>
+</div>
+<div class='har-viewer'>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block marketing %}
+{% endblock %}
